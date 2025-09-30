@@ -1,0 +1,17 @@
+version: "3"
+services:
+  front:
+    image: loja_front_2021_2
+    ports:
+      - "3000:80"
+  back:
+    image: loja_front_2021_2
+    environment:
+      - DATABASE_URL=mongodb://bd/loja
+      - SERVER_PORT=5000
+    ports:
+      - "5000:5000"
+  bd:
+    image: mongo
+    volumes:
+      - "/Users/lsrod/desktop/loja_front_2021_2/db"
